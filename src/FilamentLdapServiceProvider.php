@@ -2,19 +2,19 @@
 
 namespace Lucacalcaterra\FilamentLdap;
 
-use Filament\Support\Assets\AlpineComponent;
-use Filament\Support\Assets\Asset;
-use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
-use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Asset;
 use Illuminate\Filesystem\Filesystem;
-use Livewire\Features\SupportTesting\Testable;
-use Lucacalcaterra\FilamentLdap\Commands\FilamentLdapCommand;
-use Lucacalcaterra\FilamentLdap\Testing\TestsFilamentLdap;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
+use Filament\Support\Facades\FilamentIcon;
+use Filament\Support\Facades\FilamentAsset;
+use Filament\Support\Assets\AlpineComponent;
+use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
+use Lucacalcaterra\FilamentLdap\Testing\TestsFilamentLdap;
+use Lucacalcaterra\FilamentLdap\Commands\FilamentLdapCommand;
 
 class FilamentLdapServiceProvider extends PackageServiceProvider
 {
@@ -31,6 +31,7 @@ class FilamentLdapServiceProvider extends PackageServiceProvider
          */
         $package->name(static::$name)
             //->hasCommands($this->getCommands())
+            ->publishesServiceProvider('MyProviderName')
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
