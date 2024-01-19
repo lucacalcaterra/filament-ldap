@@ -2,19 +2,19 @@
 
 namespace Lucacalcaterra\FilamentLdap;
 
-use Filament\Support\Assets\AlpineComponent;
-use Filament\Support\Assets\Asset;
-use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
-use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Asset;
 use Illuminate\Filesystem\Filesystem;
-use Livewire\Features\SupportTesting\Testable;
-use Lucacalcaterra\FilamentLdap\Commands\FilamentLdapCommand;
-use Lucacalcaterra\FilamentLdap\Testing\TestsFilamentLdap;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
+use Filament\Support\Facades\FilamentIcon;
+use Filament\Support\Facades\FilamentAsset;
+use Filament\Support\Assets\AlpineComponent;
+use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
+use Lucacalcaterra\FilamentLdap\Testing\TestsFilamentLdap;
+use Lucacalcaterra\FilamentLdap\Commands\FilamentLdapCommand;
 
 class FilamentLdapServiceProvider extends PackageServiceProvider
 {
@@ -29,10 +29,10 @@ class FilamentLdapServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package->name(static::$name)
-            ->hasCommands($this->getCommands())
+        $package->name(static::$name)            
+            //->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
-                $command
+                $command                    
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
@@ -103,8 +103,8 @@ class FilamentLdapServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-ldap', __DIR__ . '/../resources/dist/components/filament-ldap.js'),
-            Css::make('filament-ldap-styles', __DIR__ . '/../resources/dist/filament-ldap.css'),
-            Js::make('filament-ldap-scripts', __DIR__ . '/../resources/dist/filament-ldap.js'),
+            //Css::make('filament-ldap-styles', __DIR__ . '/../resources/dist/filament-ldap.css'),
+            //Js::make('filament-ldap-scripts', __DIR__ . '/../resources/dist/filament-ldap.js'),
         ];
     }
 
